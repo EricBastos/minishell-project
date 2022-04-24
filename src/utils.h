@@ -1,0 +1,8 @@
+#ifndef AC9070D8_2E51_4D18_B3FE_6AA72F02C2B0
+#define AC9070D8_2E51_4D18_B3FE_6AA72F02C2B0
+
+char* readString(FILE* fp);
+
+char* trimWhiteSpace(char* str);
+
+#endif /* AC9070D8_2E51_4D18_B3FE_6AA72F02C2B0 */
