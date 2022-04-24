@@ -9,7 +9,8 @@ It follows the same syntax as the linux shell, so something like that would work
 cmd> ls | grep .c > out.txt
 cmd> grep int < main.c
 
-Simply run make all to build everything. Run ./minishell to execute.
+Simply create a directory named Build and run make all to build everything. 
+Run ./minishell to execute.
 
 Three helper functions to test the capabilities of the minishell are also included.
 - ./print_argv arg1 arg2 ... : Prints "Print argv: arg1 arg2 ...
