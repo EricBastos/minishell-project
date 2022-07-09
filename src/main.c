@@ -48,6 +48,13 @@ int main() {
     printf("Welcome to the miniature shell.\n");
     printf("Type exit to finish.\n");
 
+    signal (SIGINT, SIG_IGN);
+    signal (SIGQUIT, SIG_IGN);
+    signal (SIGTSTP, SIG_IGN);
+    signal (SIGTTIN, SIG_IGN);
+    signal (SIGTTOU, SIG_IGN);
+    signal (SIGCHLD, SIG_IGN);
+
     while (true) {
         printf("cmd> ");
         char* input = readString(stdin);
@@ -81,6 +88,13 @@ int main() {
             pid_t child = fork();
             
             if (child == 0) { // Child code
+
+                signal (SIGINT, SIG_DFL);
+                signal (SIGQUIT, SIG_DFL);
+                signal (SIGTSTP, SIG_DFL);
+                signal (SIGTTIN, SIG_DFL);
+                signal (SIGTTOU, SIG_DFL);
+                signal (SIGCHLD, SIG_DFL);
 
                 if (i == 0 && nodes[i]->infile != NULL) { // < is only accepted in the first process
                     int fd_id = open(nodes[i]->infile, O_RDONLY); // Set first program input to < file
